@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+```
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VYBE HUB - Add Song</title>
+
+<link rel="stylesheet" href="admin.css">
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+```
+
+</head>
+
+<body>
+
+```
+<div class="add-song-page">
+
+    <div class="add-song-card">
+
+        <div class="add-song-top">
+
+            <div>
+                <p>VYBE HUB</p>
+                <h1>Add New Song</h1>
+                <span>Add a new track to your music library.</span>
+            </div>
+
+            <button
+                onclick="window.location.href='admin.html'"
+                class="back-button">
+                ← Dashboard
+            </button>
+
+        </div>
+
+        <form id="addSongForm">
+
+            <div class="form-group">
+
+                <label>Song Title</label>
+
+                <input
+                    type="text"
+                    id="songTitle"
+                    placeholder="Enter song title"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Artist</label>
+
+                <input
+                    type="text"
+                    id="songArtist"
+                    placeholder="Enter artist name"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Album</label>
+
+                <input
+                    type="text"
+                    id="songAlbum"
+                    placeholder="Enter album name">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Cover Image URL</label>
+
+                <input
+                    type="url"
+                    id="songCover"
+                    placeholder="Paste Cloudinary image URL"
+                    required>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Audio URL</label>
+
+                <input
+                    type="url"
+                    id="songAudio"
+                    placeholder="Paste Cloudinary audio URL"
+                    required>
+
+            </div>
+
+            <button
+                type="submit"
+                class="add-song-submit">
+                Add Song to VYBE
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="add-song.js"></script>
+```
+
+</body>
+
+</html>

@@ -35,18 +35,35 @@
 
         <main class="admin-main">
 
-            <div class="admin-header">
+          <div class="admin-header">
 
-                <div>
-                    <p>Welcome back</p>
-                    <h2>Music Dashboard</h2>
-                </div>
+    <div>
+        <p>Welcome back</p>
+
+        <div class="dashboard-title">
+            <h2>Music Dashboard</h2>
+
+            <span class="live-status">
+                <i></i>
+                LIVE
+            </span>
+        </div>
+    </div>
+
+    <button onclick="window.location.href='add-song.html'">
+        + Add Song
+    </button>
+
+</div>
 
                 <button onclick="window.location.href='add-song.html'">+ Add Song</button>
                 
 
             </div>
-
+<div class="section-heading">
+    <h2>Overview</h2>
+    <span>Live music statistics</span>
+</div>
 
             <section class="stats">
 
@@ -66,14 +83,92 @@
                 </div>
 
             </section>
+            <section class="quick-actions">
+
+    <div class="quick-action-card">
+        <div class="action-icon">＋</div>
+        <div>
+            <strong>Add New Song</strong>
+            <span>Upload a new track</span>
+        </div>
+        <button onclick="window.location.href='add-song.html'">Open</button>
+    </div>
+
+    <div class="quick-action-card">
+        <div class="action-icon">♪</div>
+        <div>
+            <strong>Music Library</strong>
+            <span>Manage your tracks</span>
+        </div>
+        <button onclick="document.getElementById('adminSongs').scrollIntoView({behavior:'smooth'})">
+            View
+        </button>
+    </div>
+
+    <div class="quick-action-card">
+        <div class="action-icon">⌕</div>
+        <div>
+            <strong>Search Music</strong>
+            <span>Find songs quickly</span>
+        </div>
+        <button onclick="document.getElementById('adminSearch').focus()">
+            Search
+        </button>
+    </div>
+
+</section>
 
 
             <section class="songs-panel">
+                <section class="activity-panel">
+
+    <div class="panel-header">
+        <div>
+            <h2>Recent Activity</h2>
+            <span>Latest dashboard activity</span>
+        </div>
+    </div>
+
+    <div class="activity-item">
+        <div class="activity-dot"></div>
+
+        <div>
+            <strong>Music library updated</strong>
+            <span>Latest songs are available</span>
+        </div>
+
+        <small>LIVE</small>
+    </div>
+
+    <div class="activity-item">
+        <div class="activity-dot"></div>
+
+        <div>
+            <strong>Supabase connected</strong>
+            <span>Database is responding</span>
+        </div>
+
+        <small>ONLINE</small>
+    </div>
+
+</section>
 
                 <div class="panel-header">
-                    <h2>Music Library</h2>
-                    <span>Manage your songs</span>
-                </div>
+
+    <div>
+       <h2>
+    Music Library
+    <span class="library-count" id="libraryCount">0 songs</span>
+</h2>
+        <span>Manage your songs</span>
+    </div>
+
+    <div class="admin-search">
+        <span>⌕</span>
+        <input type="text" id="adminSearch" placeholder="Search songs...">
+    </div>
+
+</div>
 
                 <div id="adminSongs">
 
@@ -87,10 +182,8 @@
 
     </div>
 
-<script src="admin.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="admin.js"></script>
-
 </body>
 
 </html>

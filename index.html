@@ -1,149 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Vybe - Music</title>
-
+    <title>Vybe | Music</title>
     <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <div class="app-layout">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-logo">
-            ♪ Vybe
-        </div>
-
-        <nav>
-            <a href="#" class="active">🏠 Home</a>
-            <a href="#">🎵 Songs</a>
-            <a href="#">❤️ Favorites</a>
-            <a href="#">🕘 Recently Played</a>
-        </nav>
-
-    </aside>
-
-    <div class="main-content">
-
-   <header class="top-header">
-
-    <div class="logo">
-        <span>♪</span>
-        <h1>Vybe</h1>
-    </div>
-
-    <div class="search-box">
-        <span>🔍</span>
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search songs, artists..."
-        >
-    </div>
-
-</header>
-  <main>
-
-    <section class="hero-section">
-
-        <div class="hero-content">
-            <p class="hero-label">YOUR MUSIC. YOUR MOOD.</p>
-
-            <h2>Discover Your<br>Next Favorite Song</h2>
-
-            <p>
-                Explore your favorite tracks and enjoy music
-                anytime, anywhere.
-            </p>
-        </div>
-
-        <div class="hero-icon">
-            ♪
-        </div>
-
-    </section>
-
-    <section class="music-section">
-
-        <div class="section-title">
-            <h2>Trending Music</h2>
-            <span>Explore all</span>
-        </div>
-<p id="noResults">No songs found.</p>
-
-        <div id="songsContainer"></div>
-
-    </section>
-
-    <section class="artists-section">
-
-    <div class="section-title">
-        <h2>Popular Artists</h2>
-        <span>Explore artists</span>
-    </div>
-
-    <div class="artists-container">
-
-        <div class="artist-card">
-            <div class="artist-circle">🎤</div>
-            <h3>Jayjen</h3>
-            <p>Artist</p>
-        </div>
-
-        <div class="artist-card">
-            <div class="artist-circle">🎧</div>
-            <h3>Featured</h3>
-            <p>Artist</p>
-        </div>
-
-        <div class="artist-card">
-            <div class="artist-circle">🎵</div>
-            <h3>New Artists</h3>
-            <p>Discover</p>
-        </div>
-
-    </div>
-
-</section>
-<section class="recent-section">
-
-    <div class="section-title">
-        <h2>Recently Played</h2>
-        <span>Last played song</span>
-    </div>
-
-    <p id="recentSong">No song played yet</p>
-
-</section>
-
-</main>
-
-    <!-- Music Player -->
-
-    <div class="player">
-
-        <p id="currentTitle">No song selected</p>
-
-        <button id="prevBtn">⏮ Previous</button>
-
-        <audio id="audioPlayer" controls></audio>
-
-        <button id="nextBtn">Next ⏭</button>
-
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-layout">
+        <aside class="sidebar">
+            <h1 class="sidebar-logo">Vybe</h1>
+            <nav aria-label="Main navigation">
+                <a class="active" href="#home">Home</a>
+                <a href="#new-releases">New releases</a>
+                <a href="#library">Your library</a>
+            </nav>
+            <div class="sidebar-bottom">
+                <a href="admin.html">Admin</a>
+            </div>
+        </aside>
 
-    <script src="script.js"></script>
+        <main class="main-content" id="home">
+            <header class="top-header">
+                <div class="logo"><span aria-hidden="true">♪</span><h1>Vybe</h1></div>
+                <label class="search-box">
+                    <span aria-hidden="true">⌕</span>
+                    <input id="searchInput" type="search" placeholder="Search songs or artists" aria-label="Search songs or artists">
+                </label>
+            </header>
+
+            <section class="hero-section">
+                <div class="hero-content">
+                    <p class="hero-label">YOUR SOUND, YOUR MOMENT</p>
+                    <h2>Find your next favorite.</h2>
+                    <p>Explore the latest tracks in your library.</p>
+                    <a href="#library">Explore music</a>
+                </div>
+                <div class="hero-icon" aria-hidden="true">♫</div>
+            </section>
+
+            <section class="music-section new-releases-section" id="new-releases">
+                <div class="section-title">
+                    <h2>New releases</h2>
+                    <span>Fresh from your library</span>
+                </div>
+                <div id="newReleasesContainer"></div>
+            </section>
+
+            <section class="music-section" id="library">
+                <div class="section-title">
+                    <h2>Your music</h2>
+                    <span id="recentSong">Recently played: nothing yet</span>
+                </div>
+                <div id="songsContainer"></div>
+            </section>
+
+            <section class="mood-section">
+                <div class="mood-content">
+                    <p class="mood-label">VYBE AI</p>
+                    <h2>What's your mood?</h2>
+                    <p>Pick a mood to set the tone.</p>
+                    <div class="mood-buttons">
+                        <button type="button" onclick="selectMood('Focus')">Focus</button>
+                        <button type="button" onclick="selectMood('Chill')">Chill</button>
+                        <button type="button" onclick="selectMood('Energy')">Energy</button>
+                    </div>
+                    <p id="moodMessage" aria-live="polite"></p>
+                </div>
+                <div class="ai-orb" aria-hidden="true"><span>♫</span></div>
+            </section>
+        </main>
+
+        <aside class="now-playing-panel" aria-label="Now playing">
+            <h3>NOW PLAYING</h3>
+            <div class="music-visualizer">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+            <div class="now-playing-cover"><img id="nowPlayingCover" alt="Current song cover"></div>
+            <h2 id="nowPlayingTitle">Choose a song</h2>
+            <p id="nowPlayingArtist">Your library is ready</p>
+            <div class="now-playing-controls">
+                <button id="prevBtn" type="button" aria-label="Previous song">|&lt;</button>
+                <button class="np-play" type="button" aria-label="Play or pause">▶</button>
+                <button id="nextBtn" type="button" aria-label="Next song">&gt;|</button>
+            </div>
+        </aside>
     </div>
 
-</div>
+    <footer class="player">
+        <p id="currentTitle">Choose a song to start listening</p>
+        <audio id="audioPlayer" controls></audio>
+    </footer>
 </body>
-
 </html>
+.now-playing-cover {
+    position: relative;
+    overflow: hidden;
+}
+
+.now-playing-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 20px;
+}
