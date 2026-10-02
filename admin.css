@@ -1,0 +1,28 @@
+.admin-song {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-song img {
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.admin-song h3 {
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.admin-song p {
+    color: #6b7280;
+    margin-bottom: 3px;
+}
+
+.admin-song small {
+    color: #9ca3af;
+}

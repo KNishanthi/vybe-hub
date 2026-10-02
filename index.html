@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vybe - Music</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="app-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            ♪ Vybe
+        </div>
+
+        <nav>
+            <a href="#" class="active">🏠 Home</a>
+            <a href="#">🎵 Songs</a>
+            <a href="#">❤️ Favorites</a>
+            <a href="#">🕘 Recently Played</a>
+        </nav>
+
+    </aside>
+
+    <div class="main-content">
+
+   <header class="top-header">
+
+    <div class="logo">
+        <span>♪</span>
+        <h1>Vybe</h1>
+    </div>
+
+    <div class="search-box">
+        <span>🔍</span>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search songs, artists..."
+        >
+    </div>
+
+</header>
+  <main>
+
+    <section class="hero-section">
+
+        <div class="hero-content">
+            <p class="hero-label">YOUR MUSIC. YOUR MOOD.</p>
+
+            <h2>Discover Your<br>Next Favorite Song</h2>
+
+            <p>
+                Explore your favorite tracks and enjoy music
+                anytime, anywhere.
+            </p>
+        </div>
+
+        <div class="hero-icon">
+            ♪
+        </div>
+
+    </section>
+
+    <section class="music-section">
+
+        <div class="section-title">
+            <h2>Trending Music</h2>
+            <span>Explore all</span>
+        </div>
+<p id="noResults">No songs found.</p>
+
+        <div id="songsContainer"></div>
+
+    </section>
+
+    <section class="artists-section">
+
+    <div class="section-title">
+        <h2>Popular Artists</h2>
+        <span>Explore artists</span>
+    </div>
+
+    <div class="artists-container">
+
+        <div class="artist-card">
+            <div class="artist-circle">🎤</div>
+            <h3>Jayjen</h3>
+            <p>Artist</p>
+        </div>
+
+        <div class="artist-card">
+            <div class="artist-circle">🎧</div>
+            <h3>Featured</h3>
+            <p>Artist</p>
+        </div>
+
+        <div class="artist-card">
+            <div class="artist-circle">🎵</div>
+            <h3>New Artists</h3>
+            <p>Discover</p>
+        </div>
+
+    </div>
+
+</section>
+<section class="recent-section">
+
+    <div class="section-title">
+        <h2>Recently Played</h2>
+        <span>Last played song</span>
+    </div>
+
+    <p id="recentSong">No song played yet</p>
+
+</section>
+
+</main>
+
+    <!-- Music Player -->
+
+    <div class="player">
+
+        <p id="currentTitle">No song selected</p>
+
+        <button id="prevBtn">⏮ Previous</button>
+
+        <audio id="audioPlayer" controls></audio>
+
+        <button id="nextBtn">Next ⏭</button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="script.js"></script>
+    </div>
+
+</div>
+</body>
+
+</html>

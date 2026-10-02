@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vybe - Admin</title>
+
+    <link rel="stylesheet" href="admin.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <aside class="admin-sidebar">
+
+            <h1>♪ Vybe</h1>
+
+            <p>Admin Panel</p>
+
+            <nav>
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">Songs</a>
+                <a href="#">Add Song</a>
+            </nav>
+
+        </aside>
+
+
+        <main class="admin-main">
+
+            <div class="admin-header">
+
+                <div>
+                    <p>Welcome back</p>
+                    <h2>Music Dashboard</h2>
+                </div>
+
+                <button onclick="window.location.href='add-song.html'">+ Add Song</button>
+                
+
+            </div>
+
+
+            <section class="stats">
+
+                <div class="stat-card">
+                    <span>Total Songs</span>
+                    <strong>3</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Total Artists</span>
+                    <strong>3</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>Albums</span>
+                    <strong>3</strong>
+                </div>
+
+            </section>
+
+
+            <section class="songs-panel">
+
+                <div class="panel-header">
+                    <h2>Music Library</h2>
+                    <span>Manage your songs</span>
+                </div>
+
+                <div id="adminSongs">
+
+                    <p>No songs loaded yet.</p>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+<script src="admin.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="admin.js"></script>
+
+</body>
+
+</html>
